@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class codeabbey {
 	public static void p_1() {
@@ -10,11 +11,29 @@ public class codeabbey {
 		b = readInput.nextInt();
 		sum_ab = a+b;
 		System.out.printf("The sum is:\n"+ sum_ab);
+		readInput.close();
 	}
 	
+	public static void p_2() {
+		int a;
+		int sum = 0;
+		Scanner readInput = new Scanner(System.in);
+		int [] raw_list = new int [readInput.nextInt()];
+		readInput.nextLine();
+		for (a = 0;a<raw_list.length;a++)
+		{
+			raw_list[a] = readInput.nextInt();
+		}
+		for (int num:raw_list)
+		{
+			sum = sum +num;
+		}
+		System.out.print(sum);
+		readInput.close();
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		p_1();
+		p_2();
 	}
 
 }
