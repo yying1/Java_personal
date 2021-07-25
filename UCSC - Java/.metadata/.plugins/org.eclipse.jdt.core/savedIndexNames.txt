@@ -1,3 +1,2 @@
-INDEX VERSION 1.131+\\andrew.ad.cmu.edu\users\users16\yying2\Desktop\Java_personal\UCSC - Java\.metadata\.plugins\org.eclipse.jdt.core
-1169579435.index
+INDEX VERSION 1.131+C:\Users\yingy\Desktop\Java_personal\UCSC - Java\.metadata\.plugins\org.eclipse.jdt.core
 3335216443.index
