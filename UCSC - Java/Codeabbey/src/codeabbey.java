@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class codeabbey {
 	public static void p_1() {
@@ -34,16 +35,34 @@ public class codeabbey {
 	}
 	
 	public static void p_3() throws FileNotFoundException {
-		// for scanner read file throws filenot found exception is a must: https://stackoverflow.com/questions/19307622/java-says-filenotfoundexception-but-file-exists 
-		 File f = new File("3.txt");
-		 System.out.println(f.exists());
-		 System.out.println(new File("3.txt").getAbsoluteFile());
-		 System.out.println(new File("3.txt").canRead());
+		// for scanner read file throws filenotfound exception is a must: https://stackoverflow.com/questions/19307622/java-says-filenotfoundexception-but-file-exists 
+		int number; 
+		int sum = 0;
+		ArrayList <Integer> result = new ArrayList<>();
+		String line;
+		File f = new File("3.txt");
+		 //System.out.println(f.exists());
+		 //System.out.println(new File("3.txt").getAbsoluteFile());
+		 //System.out.println(new File("3.txt").canRead());
 		 Scanner readFile = new Scanner(f);
-		 String line;
-		 line = readFile.nextLine();
+		 number = Integer.parseInt(readFile.nextLine());
 		 
-		 System.out.println(line);
+		 for (int a = 0; a < number; a++)
+		 {
+			 line = readFile.nextLine();
+			 String[] items = line.split(" ");
+			 sum = 0;
+			 for (int b = 0;b<items.length;b++)
+				{
+				 sum += Integer.parseInt(items[b]) ;
+				}
+			 result.add(sum);
+		 }
+		 
+		 for (int item:result)
+			{
+			 System.out.printf(item+" ");
+			}
 		 readFile.close();
 	}
 	public static void main(String[] args) throws FileNotFoundException {
