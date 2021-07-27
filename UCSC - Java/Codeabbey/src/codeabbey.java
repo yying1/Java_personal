@@ -65,9 +65,41 @@ public class codeabbey {
 			}
 		 readFile.close();
 	}
+	
+	public static void p_4() throws FileNotFoundException {
+		// if else statement: https://www.w3cschool.cn/java/java-if.html 
+		int number; 
+		int min = 0;
+		ArrayList <Integer> result = new ArrayList<>();
+		String line;
+		File f = new File("4.txt");
+		Scanner readFile = new Scanner(f);
+		number = Integer.parseInt(readFile.nextLine());
+		for (int a =0 ; a<number; a++)
+		{
+			line = readFile.nextLine();
+			String[] items = line.split(" ");
+			if (Integer.parseInt(items[0]) > Integer.parseInt(items[1]))
+			{
+				min = Integer.parseInt(items[1]);
+			} else
+			{
+				min = Integer.parseInt(items[0]);
+			}
+			result.add(min);
+		}
+		
+		for (int item:result)
+		{
+		 System.out.printf(item+" ");
+		}
+	 readFile.close();
+	}
+	
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_3();
+		p_4();
 	}
 
 }
