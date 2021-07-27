@@ -96,10 +96,51 @@ public class codeabbey {
 	 readFile.close();
 	}
 	
+	public static void p_5() throws FileNotFoundException {
+		int number; 
+		int min = 0;
+		ArrayList <Integer> result = new ArrayList<>();
+		String line;
+		File f = new File("5.txt");
+		Scanner readFile = new Scanner(f);
+		number = Integer.parseInt(readFile.nextLine());
+		for (int a =0 ; a<number; a++)
+		{
+			line = readFile.nextLine();
+			String[] items = line.split(" ");
+			if (Integer.parseInt(items[0]) > Integer.parseInt(items[1]))
+			{
+				if (Integer.parseInt(items[1]) > Integer.parseInt(items[2]))
+				{
+					min = Integer.parseInt(items[2]);
+				} else
+				{
+				min = Integer.parseInt(items[1]);
+				}
+			} else
+			{
+				if (Integer.parseInt(items[0]) > Integer.parseInt(items[2]))
+				{
+					min = Integer.parseInt(items[2]);
+				} else
+				{
+					min = Integer.parseInt(items[0]);
+				}
+			}
+			result.add(min);
+		}
+		
+		for (int item:result)
+		{
+		 System.out.printf(item+" ");
+		}
+	 readFile.close();
+		
+	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_4();
+		p_5();
 	}
 
 }
