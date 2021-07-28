@@ -138,9 +138,41 @@ public class codeabbey {
 		
 	}
 	
+	public static void p_6() throws FileNotFoundException {
+		int number; 
+		int round = 0;
+		ArrayList <Integer> result = new ArrayList<>();
+		String line;
+		File f = new File("6.txt");
+		Scanner readFile = new Scanner(f);
+		number = Integer.parseInt(readFile.nextLine());
+		for (int a =0 ; a<number; a++)
+		{
+			line = readFile.nextLine();
+			String[] items = line.split(" ");
+			double raw = Double.parseDouble(items[0])/Double.parseDouble(items[1]);
+			if (raw > 0)
+			{
+				raw += 0.5;
+			} else
+			{
+				raw -= 0.5;
+			}
+			//System.out.printf(raw+" | ");
+			round = (int)raw;
+			result.add(round);
+		}
+		
+		for (int item:result)
+		{
+		 System.out.printf(item+" ");
+		}
+	 readFile.close();
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_5();
+		p_6();
 	}
 
 }
