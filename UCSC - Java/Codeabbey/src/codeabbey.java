@@ -170,9 +170,28 @@ public class codeabbey {
 	 readFile.close();
 	}
 	
+	public static void p_7() throws FileNotFoundException {
+		long temp;
+		ArrayList <Long> result = new ArrayList<>();
+		Scanner readInput = new Scanner(System.in);
+		String line = readInput.nextLine();
+		String [] raw_list = line.split(" ");
+		for (int a = 1; a< raw_list.length; a++)
+		{
+			temp= Math.round((Double.parseDouble(raw_list[a])-32)/1.8);
+			result.add(temp);
+		}
+		for (long item:result)
+		{
+		 System.out.printf(item+" ");
+		}
+		readInput.close();
+	}
+	
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_6();
+		p_7();
 	}
 
 }
