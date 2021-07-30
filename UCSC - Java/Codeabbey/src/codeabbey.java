@@ -188,10 +188,30 @@ public class codeabbey {
 		readInput.close();
 	}
 	
+	public static void p_8() throws FileNotFoundException {
+		int number;
+		int sum;
+		ArrayList <Integer> result = new ArrayList<>();
+		Scanner readFile = new Scanner(new File("8.txt"));
+		number = Integer.parseInt(readFile.nextLine());
+		for (int a = 0; a<number; a++) 
+		{
+			String [] items = readFile.nextLine().split(" ");
+			sum = (Integer.parseInt(items[0]) + Integer.parseInt(items[0])+ Integer.parseInt(items[1])*(Integer.parseInt(items[2])-1))*Integer.parseInt(items[2])/2;
+			result.add(sum);
+		}
+				
+		for (int a : result)
+		{
+			System.out.printf(a+" ");
+		}
+		readFile.close();
+	}
+	
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_7();
+		p_8();
 	}
 
 }
