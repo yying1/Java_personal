@@ -208,10 +208,36 @@ public class codeabbey {
 		readFile.close();
 	}
 	
+	public static void p_9() throws FileNotFoundException {
+		ArrayList <Integer> result = new ArrayList<>();
+		Scanner readFile = new Scanner(new File("9.txt"));
+		int number = Integer.parseInt(readFile.nextLine());
+		for ( int a = 0; a<number; a++)
+		{
+			String [] items = readFile.nextLine().split(" ");
+			int t1 = Integer.parseInt(items[0]);
+			int t2 = Integer.parseInt(items[1]);
+			int t3 = Integer.parseInt(items[2]);
+			ArrayList <Integer> ints = new ArrayList<Integer>();
+			for (String s : items) ints.add(Integer.valueOf(s));
+			if ((t1+t2)>=t3 && (t1+t3)>=t2 && (t2+t3)>=t1)
+			{
+				result.add(1);
+			} else 
+			{
+				result.add(0);
+			}
+		}
+		readFile.close();
+		for (int b:result)
+		{
+			System.out.print(b+" ");
+		}
+	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_8();
+		p_9();
 	}
 
 }
