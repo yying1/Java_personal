@@ -235,9 +235,63 @@ public class codeabbey {
 		}
 	}
 	
+	public static void p_10() throws FileNotFoundException{
+		ArrayList <String> result = new ArrayList<>();
+		Scanner readFile = new Scanner(new File("10.txt"));
+		int number = Integer.parseInt(readFile.nextLine());
+		for ( int a = 0; a<number; a++)
+		{
+			String [] items = readFile.nextLine().split(" ");
+			int n1 = Integer.parseInt(items[0]);
+			int n2 = Integer.parseInt(items[1]);
+			int n3 = Integer.parseInt(items[2]);
+			int n4 = Integer.parseInt(items[3]);
+			// ArrayList <Integer> ints = new ArrayList<Integer>();
+			//for (String s : items) ints.add(Integer.valueOf(s));
+			int value_a = (n4-n2)/(n3-n1);
+			int value_b = n2 - value_a*n1;
+			result.add("("+value_a);
+			result.add(value_b+")");
+		}
+		readFile.close();
+		for (String b:result)
+		{
+			System.out.print(b+" ");
+		}
+		
+	}
+	
+	public static void p_11() throws FileNotFoundException{
+		ArrayList <Integer> result = new ArrayList<>();
+		Scanner readFile = new Scanner(new File("11.txt"));
+		int number = Integer.parseInt(readFile.nextLine());
+		for ( int a = 0; a<number; a++)
+		{
+			String [] items = readFile.nextLine().split(" ");
+			int n1 = Integer.parseInt(items[0]);
+			int n2 = Integer.parseInt(items[1]);
+			int n3 = Integer.parseInt(items[2]);
+
+			
+			int sum_value = n1*n2+n3;
+			items = String.valueOf(sum_value).split("");
+			ArrayList <Integer> ints = new ArrayList<Integer>();
+			for (String s : items) ints.add(Integer.valueOf(s));
+			int digit_sum = 0;
+			for (Integer i : ints) digit_sum+= i;
+			result.add(digit_sum);
+		}
+		readFile.close();
+		for (Integer b:result)
+		{
+			System.out.print(b+" ");
+		}
+		
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_9();
+		p_11();
 	}
 
 }
