@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class codeabbey {
 	public static void p_1() {
@@ -289,9 +290,38 @@ public class codeabbey {
 		
 	}
 	
+	public static int p_12_cal_time(List<Integer> list) {
+		int total_seconds = list.get(0)*24*60*60+list.get(1)*60*60+list.get(2)*60+list.get(3);
+		return total_seconds;
+	}
+	
+	public static void p_12() throws FileNotFoundException{
+		ArrayList <String> result = new ArrayList<>();
+		Scanner readFile = new Scanner(new File("12.txt"));
+		int number = Integer.parseInt(readFile.nextLine());
+		for (int a = 0; a <number; a++) 
+		{
+			String [] items = readFile.nextLine().split(" ");
+			ArrayList <Integer> ints = new ArrayList<Integer>();
+			for (String s : items) ints.add(Integer.valueOf(s));
+			int start = p_12_cal_time(ints.subList(0,4));
+			int end = p_12_cal_time(ints.subList(4,8));
+			int duration = end - start;
+			int second = duration % 60;
+			int min = (duration / 60) % 60;
+			int hour = ((duration / 60) / 60) %24;
+			int day = ((duration / 60) / 60) /24;
+			result.add("("+day+" "+hour+" "+min+" "+second+")");
+		}
+		for (String b:result)
+		{
+			System.out.print(b+" ");
+		}
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_11();
+		p_12();
 	}
 
 }
