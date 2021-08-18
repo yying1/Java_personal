@@ -319,9 +319,37 @@ public class codeabbey {
 		}
 	}
 	
+	public static void p_13() throws FileNotFoundException{
+		ArrayList <String> result = new ArrayList<>();
+		Scanner readInput = new Scanner(System.in);
+		int number = Integer.parseInt(readInput.nextLine());
+		String [] items = readInput.nextLine().split(" ");
+		
+		for (String item:items) 
+		{
+			String [] numbers = item.split("");
+			ArrayList <Integer> ints = new ArrayList<Integer>();
+			for (String s : numbers) ints.add(Integer.valueOf(s));
+			int count = 1;
+			int sum = 0;
+			//System.out.println(ints);
+			for (int n:ints)
+			{
+				sum = sum+n*count;
+				count+=1;
+			}
+			result.add(String.valueOf(sum));
+		}
+		for (String b:result)
+		{
+			System.out.print(b+" ");
+		}
+	}
+
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_12();
+		p_13();
 	}
 
 }
