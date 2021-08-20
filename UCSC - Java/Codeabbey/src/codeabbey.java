@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.math.BigInteger;
 
 public class codeabbey {
 	public static void p_1() {
@@ -346,10 +347,43 @@ public class codeabbey {
 		}
 	}
 
+	public static void p_14() throws FileNotFoundException{
+		ArrayList <String> result = new ArrayList<>();
+		Long a;
+		boolean next = false;
+		Scanner readFile = new Scanner(new File("14.txt"));
+		a = Long.parseLong(readFile.nextLine());
+		do {
+			String [] items = readFile.nextLine().split(" ");
+			System.out.println(items[0]);
+			System.out.println(items[1]);
+			if (items[0].equals("+")) {
+				a = a + Long.parseLong(items[1]);
+			}
+			if (items[0].equals("*")) {
+				a = a * Long.parseLong(items[1]);
+			}
+			if (items[0].equals("%")) {
+				a = a % Long.parseLong(items[1]);
+				next = true;
+				//System.out.println("right");
+			}
+			//System.out.println(next);
+			System.out.println(a);
+			
+		} while (next == false);
+		result.add(String.valueOf(a));
+		
+		for (String b:result)
+		{
+			System.out.print(b+" ");
+		}
+		
+	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_13();
+		p_14();
 	}
 
 }
