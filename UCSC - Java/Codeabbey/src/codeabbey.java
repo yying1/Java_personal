@@ -349,22 +349,22 @@ public class codeabbey {
 
 	public static void p_14() throws FileNotFoundException{
 		ArrayList <String> result = new ArrayList<>();
-		Long a;
+		BigInteger a;
 		boolean next = false;
 		Scanner readFile = new Scanner(new File("14.txt"));
-		a = Long.parseLong(readFile.nextLine());
+		a = new BigInteger(readFile.nextLine());
 		do {
 			String [] items = readFile.nextLine().split(" ");
 			System.out.println(items[0]);
 			System.out.println(items[1]);
 			if (items[0].equals("+")) {
-				a = a + Long.parseLong(items[1]);
+				a = a.add(new BigInteger(items[1]));
 			}
 			if (items[0].equals("*")) {
-				a = a * Long.parseLong(items[1]);
+				a = a.multiply(new BigInteger(items[1]));
 			}
 			if (items[0].equals("%")) {
-				a = a % Long.parseLong(items[1]);
+				a = a.remainder(new BigInteger(items[1]));
 				next = true;
 				//System.out.println("right");
 			}
@@ -378,12 +378,34 @@ public class codeabbey {
 		{
 			System.out.print(b+" ");
 		}
+		readFile.close();
+	}
+	
+	public static void p_15() {
+		int maxx;
+		int minn;
+		Scanner readline = new Scanner(System.in);
+		String [] items = readline.nextLine().split(" ");
+		ArrayList <Integer> nums = new ArrayList<Integer>();
+		for (String s :items) nums.add(Integer.valueOf(s));
+		minn = nums.get(0);
+		maxx = nums.get(0);
+		for (int a = 1;a < nums.size();a++) {
+			if (nums.get(a) < minn) {
+				minn= nums.get(a);
+			}
+			if (nums.get(a) > maxx) {
+				maxx= nums.get(a);
+			}
+		}
+		System.out.print(maxx+" "+minn);
 		
+		readline.close();
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		p_14();
+		p_15();
 	}
 
 }
