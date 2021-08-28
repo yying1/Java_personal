@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.math.BigInteger;
 
-public class codeabbey {
+public class codeabbey1_15 {
 	public static void p_1() {
 		int a;
 		int b;
