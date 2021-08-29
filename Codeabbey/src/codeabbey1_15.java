@@ -33,6 +33,7 @@ public class codeabbey1_15 {
 			sum = sum +num;
 		}
 		System.out.print(sum);
+		
 		readInput.close();
 	}
 	
@@ -323,7 +324,7 @@ public class codeabbey1_15 {
 	public static void p_13() throws FileNotFoundException{
 		ArrayList <String> result = new ArrayList<>();
 		Scanner readInput = new Scanner(System.in);
-		int number = Integer.parseInt(readInput.nextLine());
+		readInput.nextLine();
 		String [] items = readInput.nextLine().split(" ");
 		
 		for (String item:items) 
@@ -345,6 +346,7 @@ public class codeabbey1_15 {
 		{
 			System.out.print(b+" ");
 		}
+		readInput.close();
 	}
 
 	public static void p_14() throws FileNotFoundException{
