@@ -1,8 +1,8 @@
+package lab0;
 //package lab0a;
 
 import static org.junit.Assert.*;
-
-import org.junit.Before;
+//import org.junit.Before;
 import org.junit.Test;
 
 public class TestCalculator {

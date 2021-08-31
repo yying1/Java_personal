@@ -1,3 +1,4 @@
+package lab0;
 //package lab0a;
 
 import java.util.Scanner;
@@ -5,23 +6,25 @@ import java.util.Scanner;
 public class Calculator {
 	
 	int add(int x, int y) {
-		//write your code here
-		return 0;
+		int sum = x + y;
+		return sum;
 	}
 	
 	int subtract(int x, int y) {
-		//write your code here
-		return 0;
+		int sub = x - y;
+		return sub;
 	}
 	
 	int multiply (int x, int y) {
-		//write your code here
-		return 0;
+		int mul = x * y;
+		return mul;
 	}
 	
 	int divide(int x, int y) {
-		//write your code here
-		return 0;
+		int div;
+		if (y == 0) {div = 0;}
+		else {div = x/y;}
+		return div;
 	}
 	
 	/**DO NOT CHANGE THIS METHOD **/
