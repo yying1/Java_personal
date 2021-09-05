@@ -33,8 +33,20 @@ public class codeabbey16_ {
 	 readFile.close();
 	}
 	
+	public static void p_17() {
+		long result = 0;
+		Scanner readInput = new Scanner (System.in);
+		ArrayList <Integer> numbers = new ArrayList<>();
+		int size = Integer.parseInt(readInput.nextLine());
+		String [] raw = readInput.nextLine().split(" ");
+		for (String r:raw) numbers.add(Integer.parseInt(r));
+		for (int i:numbers) result = (i + result)*113%10000007;
+		System.out.print(result);
+		
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException {
-		p_16();
+		p_17();
 		
 
 	}
