@@ -1,4 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 //import java.util.Arrays;
 //import java.util.List;
 
@@ -68,8 +72,43 @@ public class Class0_day1test {
 		readInput.close();
 	}
 	
-	public static void main(String[] args) {
-		detectprime();
+	public static void palindrometest() { 
+		Scanner readInput = new Scanner(System.in);
+		char[] word;
+		int len;
+		word = readInput.nextLine().trim().toCharArray();
+		len = word.length;
+		boolean status = true;
+		for (int i = 0;i<len/2;i++) {
+			if (word[i] != word[len-1-i]) {
+				status = false;
+				break;
+			}
+		}
+		System.out.print(status);
+		readInput.close();
+	}
+	
+	public static void countword() throws FileNotFoundException {
+		File f = new File("test.txt");
+		String raw;
+		Scanner readfile = new Scanner(f);
+		Scanner readInput = new Scanner(System.in);
+		long count;
+		raw = readfile.useDelimiter("\\A").next();
+		
+		System.out.println("Please input your search word:");
+		String word = readInput.nextLine().trim();
+		Pattern pattern = Pattern.compile(word, Pattern.CASE_INSENSITIVE);
+	    Matcher matcher = pattern.matcher(raw);
+	    count = matcher.results().count();
+		System.out.print(count);
+		readfile.close();
+		readInput.close();
+	}
+	
+	public static void main(String[] args) throws FileNotFoundException{
+		countword();
 
 	}
 
