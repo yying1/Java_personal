@@ -42,11 +42,34 @@ public class codeabbey16_ {
 		for (String r:raw) numbers.add(Integer.parseInt(r));
 		for (int i:numbers) result = (i + result)*113%10000007;
 		System.out.print(result);
+		readInput.close();
+	}
+	
+	public static void p_18() throws FileNotFoundException{
+		Scanner readFile = new Scanner (new File("18.txt"));
+		int num;
+		ArrayList <Float> result = new ArrayList<>();
+		String[] raw = new String[2];
+		num = Integer.parseInt(readFile.nextLine().trim());
+		for (int i = 0;i<num;i++) {
+			raw = readFile.nextLine().split("\\s");
+			ArrayList <Integer> nums = new ArrayList<>();
+			for(String s:raw) nums.add(Integer.parseInt(s));
+			float root = 1.00000000f;
+			for (int ii = 0; ii<nums.get(1);ii++) {
+				root = (root+(float)nums.get(0)/root)/2;
+			}
+			result.add(root);
+		}
+		for (Float in:result) {
+			System.out.print(String.format("%.7f", in)+" ");
+		}
 		
+		readFile.close();
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		p_17();
+		p_18();
 		
 
 	}
