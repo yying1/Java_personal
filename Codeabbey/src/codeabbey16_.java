@@ -2,8 +2,10 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.math.BigInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class codeabbey16_ {
 	
@@ -37,7 +39,7 @@ public class codeabbey16_ {
 		long result = 0;
 		Scanner readInput = new Scanner (System.in);
 		ArrayList <Integer> numbers = new ArrayList<>();
-		int size = Integer.parseInt(readInput.nextLine());
+		Integer.parseInt(readInput.nextLine());
 		String [] raw = readInput.nextLine().split(" ");
 		for (String r:raw) numbers.add(Integer.parseInt(r));
 		for (int i:numbers) result = (i + result)*113%10000007;
@@ -68,8 +70,68 @@ public class codeabbey16_ {
 		readFile.close();
 	}
 	
+	public static void p_19() {
+		File f = new File("19.txt");
+		int cases;
+		String raw;
+		Pattern pattern = Pattern.compile("[\\[\\]{}()<>]", Pattern.CASE_INSENSITIVE);
+		String result ="";
+		String result_c;
+		Hashtable<String, String> my_dict = new Hashtable<String, String>();
+		my_dict.put("}", "{");
+		my_dict.put("]", "[");
+		my_dict.put(">", "<");
+		my_dict.put(")", "(");
+		try {
+			Scanner readFile = new Scanner(f);
+			cases = Integer.parseInt(readFile.nextLine());
+			for (int c = 0;c<cases;c++) {
+				raw = readFile.nextLine();
+				Matcher matcher = pattern.matcher(raw);
+				List<String> allMatches = new ArrayList<String>();
+				while (matcher.find()){
+					allMatches.add(matcher.group());
+			      }
+				String[] left = {"[","{","<","("};
+				List<String> temp = new ArrayList<String>();
+				result_c = "1";
+				for (String i:allMatches) {
+					if (Arrays.asList(left).contains(i)) {
+						temp.add(i);
+					}
+					else {
+						if (temp.isEmpty() || !temp.get(temp.size()-1).trim().equals(my_dict.get(i)) ) {
+//							System.out.println(temp.isEmpty());
+//							System.out.println(temp.get(temp.size()-1).trim().equals(my_dict.get(i)));
+//							System.out.println(temp.get(temp.size()-1).trim());
+//							System.out.println(my_dict.get(i));
+							result_c = "0 ";
+							break;
+						}
+						else if (temp.isEmpty() && !Arrays.asList(left).contains(i)) {
+							result_c = "0 ";
+							break;
+						}
+						else if (temp.get(temp.size()-1).equals(my_dict.get(i)))  {
+							temp.remove(temp.size()-1);
+						}
+					}
+				}
+				if (temp.size() != 0) {
+					result_c = "0";
+				}
+				result = result +result_c +" ";
+			}
+		System.out.println(result);
+		readFile.close();
+		} catch (Exception e) {
+		      System.out.println("Something went wrong.");
+	    };
+	}
+	
+	
 	public static void main(String[] args) throws FileNotFoundException {
-		p_18();
+		p_19();
 		
 
 	}
