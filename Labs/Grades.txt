@@ -1,0 +1,4 @@
+95712, A, B, A, B, C, A, A, B
+95706, B, A, D, A, B, C, F, A
+95643, C, A, B, A, D
+96546, A, C, B, A, A, B, A
