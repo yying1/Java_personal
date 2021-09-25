@@ -59,7 +59,9 @@ public class NumParser {
 	 */
 	private void printResults() {
 		if (d != null) System.out.println(d.trim());
-		BigDecimal average = BigDecimal.valueOf(sum).divide(BigDecimal.valueOf(count),10, RoundingMode.HALF_UP);
+		double average;
+		average = sum/count;
+		// previously used Bigdecimal, but it cannot resolve /0 issue and cannot be set as NaN
 		System.out.printf("Sum is %1.1f"+"\n",sum);
 		System.out.printf("Average is %f"+"\n",average);
 		System.out.printf("Max is %1.1f"+"\n",max);

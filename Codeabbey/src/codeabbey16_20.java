@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class codeabbey16_ {
+public class codeabbey16_20 {
 	
 	public static void p_16() throws FileNotFoundException {
 		int num;
@@ -129,11 +129,37 @@ public class codeabbey16_ {
 	    };
 	}
 	
+	public static void p_20() {
+		char[] raw;
+		char[] vowels = {'a', 'o', 'u', 'i', 'e', 'y'};
+		int number;
+		int count;
+		String result= "";
+		try {
+			Scanner readFile = new Scanner(new File("20.txt"));
+			number = Integer.parseInt(readFile.nextLine());
+			for (int i = 0; i<number; i++) {
+				raw = readFile.nextLine().toCharArray();
+				count = 0;
+				for (char a:raw) {
+					for (char b:vowels) {
+						if (a == b) {
+							count ++;
+							break;
+						}
+					}
+				}
+				result = result.trim() + " " + count;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		System.out.println(result);	
+	}
+	
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		p_19();
-		
-
+		p_20();
 	}
 
 }
