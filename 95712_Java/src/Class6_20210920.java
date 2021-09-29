@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+//Week #4: Classes and Objects
+
 public class Class6_20210920 {
 	// Null pointer exception when call on methods of reference data type without initialization
 	
@@ -60,6 +62,13 @@ public class Class6_20210920 {
 		Arrays.sort(b);
 	}
 	
+	//Reference Data Types
+	//direct change in reference data type will reference the same memory as the orginal variable, so changes occur
+	//primitive variables will not change across methods (unless its member variable under the class)
+	//if reference data is pointed with a new reference in method, original does not change
+	//String assignment across method will also not change the original value. This is like reassigning reference data
+	//but sort the string will change the original
+	//https://www.programcreek.com/2013/09/string-is-passed-by-reference-in-java/
 	public static void variable2() {
 		int[] x = {1,2,3};
 		int x1 = 1;
@@ -70,7 +79,7 @@ public class Class6_20210920 {
 		System.out.println(x[2]);// will not change as well
 		String a = "same";
 		someothermethod1(a);
-		System.out.println(a);// String is a reference data type, so change in 1 (create new memory) will not affect a in varaible2
+		System.out.println(a);// String is a reference data type, so change in someothermethod1 (create new memory) will not affect a in varaible2
 		String[] b = {"b","a","c"};
 		someothermethod2(b);
 		System.out.println(Arrays.toString(b));// Array sort will actually modify the original reference data

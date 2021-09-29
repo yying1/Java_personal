@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+//Week 3: Data types and program flow
+
 public class Class4_20210913 {
 
 	public static void main(String[] args) {

@@ -41,7 +41,7 @@ public class Grader {
 		//write your code here
 		String rawtext = "";
 		try {
-		Scanner readfile = new Scanner(new File("Grades.txt"));
+		Scanner readfile = new Scanner(new File("Grades.txt"));//this should be the variable file name
 		while(readfile.hasNextLine()) {
 			rawtext = rawtext + readfile.nextLine()+"\n";
 		}
