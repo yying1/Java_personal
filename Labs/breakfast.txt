@@ -1,0 +1,7 @@
+Sam, Coffee, Banana cake 
+Lisa, Chai latte, Donut
+Joe, Coffee, Egg sandwich, Brownie
+Raj, Cafe latte, French toast
+Cindy, Cafe latte, Donut, Egg sandwich
+Rachel, Iced tea, French toast
+Seema, Chai latte, Egg sandwich
