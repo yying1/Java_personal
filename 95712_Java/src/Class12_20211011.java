@@ -1,6 +1,6 @@
 //Interfaces
 
-public class Class12_20211004 extends auto implements flyable,flyable1 {
+public class Class12_20211011 extends auto implements flyable,flyable1 {
 
 	//Display class signatures and capabilities above inheritance
 	//Interface use blank arrow with dash line in UML diagram
