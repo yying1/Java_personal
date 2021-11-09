@@ -48,7 +48,7 @@ public class Class8_20210927 { // All classes are data types
 //Inheritance is a design decision after careful review and not for in-flight design. "Signature"
 // Uniform Interface to use classes that are related through inheritance, same vocab and same methods used by different ppl
 // Modular Design
- class student{
+ class studente{
 	String name;
 	String college;
 	String state;
@@ -57,11 +57,11 @@ public class Class8_20210927 { // All classes are data types
 	}
 }
  
- class pittstudent extends student {
+ class pittstudent extends studente {
 	 String college = "Pitt";
  }
  
- class cmustudent extends student {
+ class cmustudent extends studente {
 	String college;
 	
 	@Override
