@@ -46,10 +46,10 @@ class multithread extends Thread{
 	}
 }
 
-class passenger {
+class passenger2 {
 	int ticketnum;
 	static int passengercount;
-	passenger(){
+	passenger2(){
 		this.ticketnum = passengercount+1;
 		passengercount++;
 	}
@@ -57,8 +57,8 @@ class passenger {
 
 class boardinggate {
 	terminal t;
-	aircraft a;
-	static Queue<passenger> queue = new LinkedList<>();
+	aircraft1 a;
+	static Queue<passenger2> queue = new LinkedList<>();
 	//why static? single resource, shared by other classes without instantiation
 	//declare volatile variable to avoid create local copies on static variable in memory
 	void board() {
@@ -70,6 +70,6 @@ class terminal{
 	
 }
 
-class aircraft{
+class aircraft1{
 	
 }
