@@ -103,8 +103,7 @@ public class InterestingPictureServlet extends HttpServlet {
             nextView = "prompt.jsp";
         }
         // Transfer control over the the correct "view"
-        RequestDispatcher view = request.getRequestDispatcher(nextView);
-        view.forward(request, response);
+
     }
 }
 
