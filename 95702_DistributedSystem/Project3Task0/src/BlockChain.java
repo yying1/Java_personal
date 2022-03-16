@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class BlockChain extends java.lang.Object {
 
@@ -18,8 +19,6 @@ public class BlockChain extends java.lang.Object {
 
     public BlockChain(){
         this.blocks = new ArrayList<Block>();
-
-
 
     }
 
@@ -164,8 +163,48 @@ public class BlockChain extends java.lang.Object {
         this.chain_hash = this.getBlock(-1).proofOfWork();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws NoSuchAlgorithmException{
+        BlockChain bc = new BlockChain();
+        Block genesis_block = new Block(0, bc.getTime(), "", 2);
+        bc.addBlock(genesis_block);
+        bc.computeHashesPerSecond();
+        Scanner readinput = new Scanner(System.in);
+        while (true){
+            System.out.println("0. View basic blockchain status.\n1. Add a transaction to the blockchain.\n2. Verify the blockchain.\n3. View the blockchain.\n4. Corrupt the chain.\n5. Hide the corruption by repairing the chain.\n6. Exit.");
+            String option = readinput.nextLine();
+            if(option.equals("0")){
+                //The number of blocks on the chain
+                System.out.println("Current size of chain: "+bc.getChainSize());
+                //Difficulty of most recent block
+                System.out.println("Difficulty of most recent block: "+bc.getLatestBlock().getDifficulty());
+                //The total difficulty for all blocks
+                System.out.println("Total difficulty for all blocks: "+bc.getTotalDifficulty());
+                //Approximate hashes per second on this machine.
+                System.out.println("Approximate hashes per second on this machine: "+bc.getHashesPerSecond());
+                //Expected total hashes required for the whole chain.
+                System.out.println("Expected total hashes required for the whole chain: "+bc.getTotalExpetedHashes());
+                //The computed nonce for most recent block.
+                System.out.println("Nonce for most recent block: "+bc.getLatestBlock().getNonce());
+                //The chain hash (hash of the most recent block).
+                System.out.println("Chain hash: "+bc.getChainHash());
 
+            } else if (option.equals("1")){
+
+            } else if (option.equals("2")){
+
+            } else if (option.equals("3")){
+
+            } else if (option.equals("4")){
+
+            } else if (option.equals("5")){
+
+            } else if (option.equals("6")){
+                break;
+            }
+
+
+        }
+        readinput.close();
     }
 
 }
