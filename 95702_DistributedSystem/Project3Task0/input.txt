@@ -1,0 +1,24 @@
+0
+1
+2
+Alice pays Bob 100DSCoin
+1
+2
+Bob pays Carol 50 DSCoin
+1
+2
+Carol pays Andy 10 DSCoin
+2
+3
+4
+1
+Alice pays Bob 76 DSCoin
+3
+2
+5
+2
+1
+4
+Andy pays Sean 25 DSCoin
+0
+6

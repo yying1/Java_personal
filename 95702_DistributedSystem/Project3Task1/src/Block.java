@@ -1,15 +1,16 @@
 //Frank Yue Ying | yying2@andrew.cmu.edu
 
+import org.json.*;
+
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.util.Arrays;
-import org.json.*;
 
 
-public class Block extends java.lang.Object {
+public class Block extends Object {
 
     //setting up class variables
      int index;
