@@ -3,6 +3,8 @@ FROM tomcat:10.1.0-M5-jdk16-openjdk-slim-bullseye
 
 # This provides better support for running the JVM in a container
 ENV JAVA_OPTS="-Xmx300m"
+# Use TLSv1.2 for communication between Heroku and MongoDB
+ENV JAVA_OPTS="-Djdk.tls.client.protocols=TLSv1.2"
 
 # Expose port 8080 when running on localhost
 EXPOSE 8080

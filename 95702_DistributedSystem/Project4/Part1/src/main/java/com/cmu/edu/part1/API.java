@@ -1,3 +1,5 @@
+//Frank Yue Ying | yying2@
+
 package com.cmu.edu.part1;
 
 import org.json.*;
@@ -42,7 +44,7 @@ public class API {
         Hashtable<Integer, String> player_list = new Hashtable<Integer, String>();
         int element_id;
         JSONArray elements = FPLData.getJSONArray("elements");
-        System.out.println(elements.length());
+//        System.out.println(elements.length());
         for (Object element: elements) {
             element_id = ((JSONObject) element).getInt("id");
             String player_name = ((JSONObject) element).getString("web_name");
@@ -152,6 +154,33 @@ public class API {
         return result;
     }
 
+    public String get_player_overall_toString(ArrayList<String> player_overall){
+        String result = "Overall Performance for "+ player_overall.get(0)+"\r\n";
+        result = result + String.format("%-12s%15s", "Position:", player_overall.get(1))+"\n";
+        result = result + String.format("%-12s%15s", "Now Cost:", player_overall.get(2))+"\n";
+        result = result + String.format("%-12s%15s", "TotalScore:", player_overall.get(3))+"\n";
+        result = result + String.format("%-12s%15s", "Selected%:", player_overall.get(4))+"\n";
+        return result;
+    }
+
+    public String get_player_recent_toString(Hashtable<String, ArrayList<Integer>> player_recent, Integer ID,JSONObject FPLdoc){
+        String name = this.get_player_overall(ID,FPLdoc).get(0);
+        String round="";
+        String min="";
+        String selected="";
+        String points="";
+        String [] player_metrics = {"round","minutes","selected","total_points"};
+        String result = "Recent Performance of "+ name+"\r\n";
+        result = result + String.format("%-8s%10s%10s%10s", "Round#", "minutes","selected#","points")+"\n";
+        for (int i = 0; i < player_recent.get("round").size();i++) {
+            round = String.valueOf(player_recent.get(player_metrics[0]).get(i));
+            min = String.valueOf(player_recent.get(player_metrics[1]).get(i));
+            selected = String.valueOf(player_recent.get(player_metrics[2]).get(i));
+            points = String.valueOf(player_recent.get(player_metrics[3]).get(i));
+            result = result + String.format("%-8s%10s%10s%10s", round, min,selected,points)+"\n";
+        }
+        return result;
+    }
 
     public static void main(String args[]){
         API FPL_API = new API();
@@ -160,13 +189,15 @@ public class API {
         //FPL_API.write_players(players);
         Hashtable<String, ArrayList<Integer>> player_recent = FPL_API.get_player_recent(138);
         ArrayList<String> player_overall = FPL_API.get_player_overall(138,FPLdoc);
-        System.out.println(player_overall.toString());
+//        System.out.println(player_overall.toString());
 //        for (Map.Entry<String, ArrayList<Integer>> entry :
 //                player_recent.entrySet()) {
 //            // put key and value separated by a colon
 //            System.out.println(entry.getKey() + ":" + entry.getValue().toString());
 //        }
-        String result = FPL_API.compare_players(138,137,FPLdoc);
+//        String result = FPL_API.get_player_recent_toString(player_recent,138,FPLdoc);
+        String result = FPL_API.get_player_overall_toString(player_overall);
+//        String result = FPL_API.compare_players(138,137,FPLdoc);
         System.out.println(result);
     }
 

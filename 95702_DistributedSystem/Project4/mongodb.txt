@@ -1,0 +1,16 @@
+Replace <password> with the password for the yying2 user. Replace myFirstDatabase with the name of the database that connections will use by default. Ensure any option params are URL encoded.
+------------------------
+cluster0-shard-00-00.vw2o4.mongodb.net:27017
+cluster0-shard-00-01.vw2o4.mongodb.net:27017
+cluster0-shard-00-02.vw2o4.mongodb.net:27017
+------------------------
+
+ConnectionString connectionString = new ConnectionString("mongodb://yying2:wywdzy@cluster0-shard-00-00.vw2o4.mongodb.net:27017,cluster0-shard-00-01.vw2o4.mongodb.net:27017,cluster0-shard-00-02.vw2o4.mongodb.net:27017/test?w=majority&retryWrites=true&tls=true&authMechanism=SCRAM-SHA-1");
+MongoClientSettings settings = MongoClientSettings.builder()
+        .applyConnectionString(connectionString)
+        .serverApi(ServerApi.builder()
+            .version(ServerApiVersion.V1)
+            .build())
+        .build();
+MongoClient mongoClient = MongoClients.create(settings);
+MongoDatabase database = mongoClient.getDatabase("test");
