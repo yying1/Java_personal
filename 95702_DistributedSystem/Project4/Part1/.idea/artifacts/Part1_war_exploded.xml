@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="Part1:war exploded">
+  <artifact type="exploded-war" name="Part1:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/Part1_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -11,6 +11,11 @@
           <element id="library" level="project" name="mongodb.driver.sync" />
           <element id="library" level="project" name="slf4j.api" />
           <element id="library" level="project" name="slf4j.simple" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-sync:4.3.3" />
+          <element id="library" level="project" name="Maven: org.mongodb:bson:4.3.3" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-core:4.3.3" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.36" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.36" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Part1/web/Web" />
