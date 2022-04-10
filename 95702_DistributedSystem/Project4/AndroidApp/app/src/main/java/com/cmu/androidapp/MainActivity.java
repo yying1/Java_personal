@@ -45,26 +45,30 @@ public class MainActivity extends AppCompatActivity {
         Button searchbutton = (Button)findViewById(R.id.button_search);
         searchbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                int searchID = Integer.parseInt(((EditText)findViewById(R.id.playerID)).getText().toString());
-                boolean overall = ((Switch)findViewById(R.id.search_action)).isChecked();
-                fpl FPL = new fpl();
-                System.out.println(searchID);
-                System.out.println(overall);
-                String result = FPL.handle_search(searchID,overall);
-                System.out.println(result);
-                TextView result_text = (TextView) findViewById(R.id.search_result);
-                result_text.setText(result);
-                TextView searchView = (EditText)findViewById(R.id.playerID);
-                searchView.setText("");
+                if (((EditText)findViewById(R.id.playerID)).getText().toString().isEmpty()){
+                } else{
+                    int searchID = Integer.parseInt(((EditText)findViewById(R.id.playerID)).getText().toString());
+                    boolean overall = ((Switch)findViewById(R.id.search_action)).isChecked();
+                    fpl FPL = new fpl();
+                    System.out.println(searchID);
+                    System.out.println(overall);
+                    String result = FPL.handle_search(searchID,overall);
+                    System.out.println(result);
+                    TextView result_text = (TextView) findViewById(R.id.search_result);
+                    result_text.setText(result);
+                    TextView searchView = (EditText)findViewById(R.id.playerID);
+                    searchView.setText("");
+                }
+
             }
         });
 
-        Button search_switch_button = (Button)findViewById(R.id.button_switch);
-        search_switch_button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                me.setContentView(R.layout.fragment_second);
-            }
-        });
+//        Button search_switch_button = (Button)findViewById(R.id.button_switch);
+//        search_switch_button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                me.setContentView(R.layout.fragment_second);
+//            }
+//        });
 
     }
 

@@ -1,15 +1,15 @@
 //Frank Yue Ying | yying2@
 package com.cmu.androidapp;
 
-import android.app.Activity;
-import android.os.StrictMode;
-
+import org.json.JSONObject;
 import java.io.*;
 import java.net.*;
-import java.util.*;
 
 public class fpl {
-    String servlet_base = "https://evening-castle-99753.herokuapp.com/fpl?";
+    String servlet_base = "https://tranquil-citadel-78670.herokuapp.com//fpl?";
+    //use this servlet_base for testing on local machine
+//    String servlet_base = "http://10.0.2.2:8080/Part1_war_exploded/fpl?";
+
     fpl FPL = null;
     int ID1= 0;
     int ID2= 0;
@@ -32,10 +32,11 @@ public class fpl {
                 BufferedReader servel_in = new BufferedReader(new InputStreamReader(Servlet_conn.getInputStream()));
                 String inputLine;
                 while((inputLine = servel_in.readLine()) != null){
-                    servlet_String= servlet_String +"\r\n"+ inputLine;
+                    servlet_String= servlet_String + inputLine;
                 }
             }
-            return servlet_String;
+            JSONObject response_jsonObject = new JSONObject(servlet_String);
+            return response_jsonObject.getString("result");
         } catch (Exception e) {
             System.out.print("Get API data error: "+e);
             return "Error";
@@ -66,49 +67,9 @@ public class fpl {
         return this.connection(request);
     }
 
-    private class BackgroundTask {
-
-        private Activity activity; // The UI thread
-
-        public BackgroundTask(Activity activity) {
-            this.activity = activity;
-        }
-
-        private void startBackground() {
-            new Thread(new Runnable() {
-                public void run() {
-
-                    doInBackground();
-                    // This is magic: activity should be set to MainActivity.this
-                    //    then this method uses the UI thread
-                    activity.runOnUiThread(new Runnable() {
-                        public void run() {
-                            onPostExecute();
-                        }
-                    });
-                }
-            }).start();
-        }
-
-        private void execute() {
-            // There could be more setup here, which is why
-            //    startBackground is not called directly
-            startBackground();
-        }
-        private void doInBackground() {
-        }
-
-        // onPostExecute( ) will run on the UI thread after the background
-        //    thread completes.
-        // Implement this method to suit your needs
-        public void onPostExecute() {
-
-        }
-    }
-
     public static void main(String[] args ){
         fpl FPL = new fpl();
-//        String result = FPL.handle_search(138,false);
-//        System.out.println(result);
+        String result = FPL.handle_compare(138,137);
+        System.out.println(result);
     }
 }

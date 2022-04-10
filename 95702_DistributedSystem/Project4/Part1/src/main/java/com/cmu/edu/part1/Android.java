@@ -81,8 +81,12 @@ public class Android extends HttpServlet {
             System.out.println(result);
             this.record.put("result",result);
             PrintWriter out = response.getWriter();
-            response.setContentType("text/plain");
-            out.write(result);
+            JSONObject response_jsonObject = new JSONObject();
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response_jsonObject.put("result",result);
+            out.print(response_jsonObject);
+            out.flush();
             this.record.put("duration",String.valueOf((int) (new Timestamp(System.currentTimeMillis()).getTime() - start.getTime())/1000));
             out.close();
             this.FPLDB.insert_collection(this.FPLDB.db_collection, this.record);

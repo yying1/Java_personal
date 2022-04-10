@@ -29,11 +29,10 @@
         android:layout_marginTop="16dp"
         android:text="Search"
         app:layout_constraintBottom_toTopOf="@+id/search_result"
-        app:layout_constraintEnd_toStartOf="@+id/button_switch"
-        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerID"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintVertical_bias="0.19" />
 
     <EditText
         android:id="@+id/search_description"
@@ -100,15 +99,15 @@
         app:layout_constraintTop_toBottomOf="@+id/search_description"
         app:layout_constraintVertical_bias="0.348" />
 
-    <Button
-        android:id="@+id/button_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="108dp"
-        android:text="Next"
-        app:layout_constraintBottom_toTopOf="@+id/search_result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerID"
-        app:layout_constraintVertical_bias="0.425" />
+<!--    <Button-->
+<!--        android:id="@+id/button_switch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="108dp"-->
+<!--        android:text="Next"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/search_result"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/playerID"-->
+<!--        app:layout_constraintVertical_bias="0.425" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
