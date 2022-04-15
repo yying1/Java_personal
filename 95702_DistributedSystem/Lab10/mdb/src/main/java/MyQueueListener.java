@@ -15,7 +15,7 @@ import jakarta.jms.*;
 })
 public class MyQueueListener implements MessageListener {
 
-    //Added section to write to myQueue2
+    //Added section to write to myQueue3
     // Lookup the ConnectionFactory using resource injection and assign to cf
     @Resource(mappedName = "jms/myConnectionFactory")
     private ConnectionFactory cf;
@@ -43,8 +43,8 @@ public class MyQueueListener implements MessageListener {
                 TextMessage msg = session.createTextMessage();
                 msg.setText(tmt);
                 writer.send(msg);
+                System.out.println("MyQueueListener sent " +tmt +" to q3");
                 con.close();
-
             } else {
                 System.out.println("I don't handle messages of this type");
             }
