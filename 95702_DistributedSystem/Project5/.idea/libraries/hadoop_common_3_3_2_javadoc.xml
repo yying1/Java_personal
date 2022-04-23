@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hadoop-common-3.3.2-javadoc">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/JetBrains/hadoop-common-3.3.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
