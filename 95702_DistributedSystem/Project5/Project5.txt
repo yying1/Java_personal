@@ -1,0 +1,18 @@
+javac -classpath /home/student242/Project5/Part_1/Task1/hadoop-core-1.2.1.jar:./lettercount_classes -d lettercount_classes WordCount.java
+
+jar -cvf lettercount.jar -C lettercount_classes/ .
+
+hadoop dfs -rmr /user/student242/output
+
+hadoop dfs -copyFromLocal /home/userID/input/1902.txt /user/userID/input/1902.txt
+
+
+hadoop jar /home/student242/Project5/Part_1/Task2/factcount.jar org.myorg.factcount input/words.txt /user/student242/output
+
+hadoop dfs -getmerge /user/student242/output ~/Project5/Part_1/Task2/Task2Output
+
+/home/student242/Project5/Part_1/
+
+## Add string before and after each line of a file
+awk '$0="<Placemark><name>Aggravated Assault</name><Point><coordinates>"$0"</coordinates></Point></Placemark>"' task7.kml >task71.kml
+

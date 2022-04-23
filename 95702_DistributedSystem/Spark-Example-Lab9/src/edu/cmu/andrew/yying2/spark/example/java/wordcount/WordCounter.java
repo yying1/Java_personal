@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 public class WordCounter {
 
+
     private static void wordCount(String fileName) {
 
         SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("JD Word Counter");
@@ -31,7 +32,7 @@ public class WordCounter {
             System.out.println("No files provided.");
             System.exit(0);
         }
-
         wordCount(args[0]);
+
     }
 }
