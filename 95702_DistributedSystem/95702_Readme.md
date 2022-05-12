@@ -2,7 +2,7 @@
 ***
 **Note**: 
 
-This directory contains instructions and personal works for this course. 
+This directory contains instructions and personal works for this course. Some content in this directory came from the official course repo: https://github.com/CMU-Heinz-95702.
 
 **Course Description**: 
 
